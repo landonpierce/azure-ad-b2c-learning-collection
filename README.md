@@ -12,7 +12,7 @@ If you are just getting started with B2C, I'd recommend reviewing the following 
 - Having a baseline understanding of the OIDC and OAuth2.0 protocols is important as well: [Authentication requests](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-app-types)
 - Interfacing with the Microsoft Identity Platform is usually done through the Microsoft Authentication Library (MSAL). It can be done manually, but it is not recommended. [Overview of the Microsoft Authentication Library](https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview)
 - Applications that interface with the Microsoft Identity Platform must be registered with an *App Registration*. Read more about app registrations: [Application model](https://learn.microsoft.com/en-us/azure/active-directory/develop/application-model)
-- Configuring the business logic for your users sign in experience is called a *User Journey* in B2C. In other words, User Journeys are how you define, step-by-step, what happens when a user goes through an authentication flow such as during sign-in or sign-up. You have two options for creating your User Journeys: *User Flows* and *Custom Policies*. User Flows configuration is GUI-based and they are designed for the most common authentication scenarios. Custom Policies are configured via XML files and are much more complex, but can support a wider range of scenarios. Read more about the differences h on [User flows and custom policies overview](https://learn.microsoft.com/en-us/azure/active-directory-b2c/user-flow-overview)
+- Configuring the business logic for your users sign in experience is called a *User Journey* in B2C. In other words, User Journeys are how you define, step-by-step, what happens when a user goes through an authentication flow such as during sign-in or sign-up. You have two options for creating your User Journeys: *User Flows* and *Custom Policies*. User Flows configuration is GUI-based and they are designed for the most common authentication scenarios. Custom Policies are configured via XML files and are much more complex, but can support a wider range of scenarios. Read more about the differences on [User flows and custom policies overview](https://learn.microsoft.com/en-us/azure/active-directory-b2c/user-flow-overview)
 - A technical overview that summarizes the main components of B2C: [Technical and feature overview of Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/technical-overview)
 
 ## Custom Policies
@@ -39,8 +39,8 @@ To learn how to use Custom Policies, I'd recommend reviewing the following resou
 
 ## Authorization
 
-- A great sample written to explain how to use app roles in Azure AD B2C for authorization. Also explains the main differences between the other options. https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles
-- In scenarios which you'd like to let the federated identity provider manage groups or roles, and you do not want to manage it in your B2C tenant, you may wish to pass through the access token received from the identity provider for use by your application. Doing this requires that the groups and roles are being returned from the identity provider, which requires configuration specific to that identity provider. [Pass an identity provider access token to your application in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/idp-pass-through-user-flow?pivots=b2c-custom-policy)
+- A great sample written to explain how to use app roles in Azure AD B2C for authorization. Also explains the main differences between the other authorization options as well. [Identity Sample for Azure AD B2C - App Roles](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles)
+- In scenarios which you'd like to let a federated identity provider manage groups or roles, and you do not want to manage it in your B2C tenant, you may wish to pass through the access token received from the identity provider for use by your application. Doing this requires that the groups and roles are being returned from the identity provider, which requires configuration at the federated identity provider. [Pass an identity provider access token to your application in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/idp-pass-through-user-flow?pivots=b2c-custom-policy)
 
 ## Training Resources
 
@@ -50,7 +50,7 @@ To learn how to use Custom Policies, I'd recommend reviewing the following resou
 
 ## Managing B2C Programatically
 
-You can manage most aspects of B2C by using the [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/use-the-api). Here are some resources for learning how to manage your B2C tenant programatically.
+You can manage most aspects of B2C by using the [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/use-the-api). Note that at the time of writing this, some of the endpoints used are still in beta. Here are some resources for learning how to manage your B2C tenant programmatically.
 
 - [Managing Azure AD B2C with Microsoft Graph](https://learn.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-operations)
 - [Deploying custom policies with Azure Piplines](https://learn.microsoft.com/en-us/azure/active-directory-b2c/deploy-custom-policies-devops)
