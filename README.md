@@ -1,6 +1,6 @@
-# azure-ad-b2c-learning-collection
+# Azure AD B2C Learning Collection
 
-Azure AD B2C is a product designed to facilitate logins for your end user application. It is part of the Microsoft Identity Platform and has very similar features to mainstream Azure AD, but also has many differences. This repository is an organized collection of materials I'd recommend reviewing in order to learn how to use Azure AD B2C for user's that are both getting started, and also implementing more complicated scenarios.
+Azure AD B2C is a product designed to facilitate logins for your end user application. It is part of the Microsoft Identity Platform and has very similar features to mainstream Azure AD, but also has many differences. This repository is an organized collection of materials I'd recommend reviewing in order to learn how to use Azure AD B2C. If you already have a grasp of the basics, feel free to skip down to the more complex topics.
 
 ## Getting Started
 
@@ -24,18 +24,39 @@ Each page in the documentation usually has a "tab" at the top switching between 
 To learn how to use Custom Policies, I'd recommend reviewing the following resources:
 
 - Custom policies are made up of a lot of components, and have many moving pieces. Read [Custom policy overview](https://learn.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant?pivots=b2c-user-flow) and all pages linked inside for a breakdown of all the pieces of a custom policy. You'll probably want to read it a few times. 
-
 - The B2C product group (PG) has several custom policy "starter packs" they maintain. I would highly recommend starting from one of these instead of creating your own from scratch: [Custom Policy Starter Packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)
 - [The schema reference for Custom Policies](https://learn.microsoft.com/en-us/azure/active-directory-b2c/technical-overview)
 - This is a custom policy tutorial written by some of the B2C PG as well as some people from the community: [Custom Policy Concepts](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/docs/custom-policy-concepts/)
   - There is also a series of [webinars](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/training/recordings/) on OIDC, OAuth, and custom policies. 
+- Before using custom policies, you must [set up](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy) the Identity Experience Framework inside your B2C tenant. As noted in the document, there is also a web application maintained by the B2C PG that automates this process for you: [IEF Setup App](https://aka.ms/iefsetup)
+- This is a samples repository maintained by the B2C PG with samples for many different scenarios. [Azure Active Directory B2C: Custom CIAM User Journeys](https://github.com/azure-ad-b2c/samples)
 
+## Identity Federation
+[Identity federation](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/whatis-fed) is the concept of forming a trust with one or more identity providers to facilitate Single Sign on (SSO). Ideally, your application would trust an Azure Active Directory B2C tenant, and your B2C tenant would then trust *n* number of other identity providers, thus giving your users the ability to sign-in with pre existing accounts. B2C supports any federated identity provider that implements either the OIDC or SAML authentication protocols. 
+
+- The B2C Identity Provider overview page. Also contains links to all supported identity providers in the table of contents on the left. [Add an identity provider to your Azure Active Directory B2C tenant](https://learn.microsoft.com/en-us/azure/active-directory-b2c/add-identity-provider)
+- In the most simple case, the user would likely select which identity provider they would like to sign in with on the login screen. In more complex examples, you may not want your users to see identity providers that they do not belong to. To solve this, your two main options are using [Home Realm Discovery](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) or [Dynamic identity provider selection](https://github.com/azure-ad-b2c/samples/tree/master/policies/idps-filter)
 
 ## Authorization
 
 - A great sample written to explain how to use app roles in Azure AD B2C for authorization. Also explains the main differences between the other options. https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles
+- In scenarios which you'd like to let the federated identity provider manage groups or roles, and you do not want to manage it in your B2C tenant, you may wish to pass through the access token received from the identity provider for use by your application. Doing this requires that the groups and roles are being returned from the identity provider, which requires configuration specific to that identity provider. [Pass an identity provider access token to your application in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/idp-pass-through-user-flow?pivots=b2c-custom-policy)
 
 ## Training Resources
+
+- [Solutions and Training for Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/solution-articles)
+- This is a fantastic tutorial on how to secure a Web API with Azure AD B2C. It starts at the very beginning and includes a sample web application and API for you to run. Highly recommend running through this. [How to secure a Web API built with ASP.NET Core using the Azure AD B2C](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C)
+
+
+## Managing B2C Programatically
+
+You can manage most aspects of B2C by using the [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/use-the-api). Here are some resources for learning how to manage your B2C tenant programatically.
+
+- [Managing Azure AD B2C with Microsoft Graph](https://learn.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-operations)
+- [Deploying custom policies with Azure Piplines](https://learn.microsoft.com/en-us/azure/active-directory-b2c/deploy-custom-policies-devops)
+- [Deploying custom policies with GitHub Actions](https://learn.microsoft.com/en-us/azure/active-directory-b2c/deploy-custom-policies-github-action)
+- [Managing Azure AD B2C custom policies with PowerShell](https://learn.microsoft.com/en-us/azure/active-directory-b2c/manage-custom-policies-powershell)
+- [Microsoft Graph SDKS](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview)
 
 
 ## Other Resources or Notes
