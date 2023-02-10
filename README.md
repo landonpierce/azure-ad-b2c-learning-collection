@@ -2,10 +2,13 @@
 
 Azure AD B2C is a product designed to facilitate logins for your end user application. It is part of the Microsoft Identity Platform and has very similar features to mainstream Azure AD, but also has many differences. This repository is an organized collection of materials I'd recommend reviewing in order to learn how to use Azure AD B2C. If you already have a grasp of the basics, feel free to skip down to the more complex topics.
 
+Feedback on this guide is absolutely welcomed. Please feel free to open a GitHub issue or a Pull Request if you would like to see a change or have any thoughts on the content.
+
 ## Getting Started
 
-If you are just getting started with B2C, I'd recommend reviewing the following links in order. These documents will provide a good baseline of what the product is and how it's used. 
+If you're just getting started with B2C, I'd recommend reviewing the following links in order. These documents will provide a good baseline of what the product is and how it's used. 
 
+- Why should you use a cloud identity provider over managing your identity in-house? [Use a fully managed identity service platform](https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/identity)
 - Read this page for an overview of what the B2C product is and what it is designed for: [What is Azure Active Directory B2C?](https://learn.microsoft.com/en-us/azure/active-directory-b2c/overview)
 - Azure AD B2C is a product grouped together in a suite called *External Identities*. Read more about the different external identities products here: [External Identities Overview](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/external-identities-overview)
 - Authentication and Authorization are sometimes terms that are used interchangeably, but they are different. [Authentication vs Authorization](https://learn.microsoft.com/en-us/azure/active-directory/develop/authentication-vs-authorization)
