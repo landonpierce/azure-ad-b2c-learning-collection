@@ -26,13 +26,13 @@ Each page in the documentation usually has a "tab" at the top switching between 
 
 To learn how to use Custom Policies, I'd recommend reviewing the following resources:
 
-- Custom policies are made up of a lot of components, and have many moving pieces. Read [Custom policy overview](https://learn.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant?pivots=b2c-user-flow) and all pages linked inside for a breakdown of all the pieces of a custom policy. You'll probably want to read it a few times. 
+- Custom policies are made up of a lot of components, and have many moving pieces. Read [Custom policy overview](https://learn.microsoft.com/en-us/azure/active-directory-b2c/custom-policy-overview) and all pages linked inside for a breakdown of all the pieces of a custom policy. You'll probably want to read it a few times.
 - The B2C product group (PG) has several custom policy "starter packs" they maintain. I would highly recommend starting from one of these instead of creating your own from scratch: [Custom Policy Starter Packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)
 - [The schema reference for Custom Policies](https://learn.microsoft.com/en-us/azure/active-directory-b2c/technical-overview)
 - This is a custom policy tutorial written by some of the B2C PG as well as some people from the community: [Custom Policy Concepts](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/docs/custom-policy-concepts/)
-  - There is also a series of [webinars](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/training/recordings/) on OIDC, OAuth, and custom policies. 
+  - There is also a series of [webinars](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/training/recordings/) on OIDC, OAuth, and custom policies.
 - Before using custom policies, you must [set up](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy) the Identity Experience Framework inside your B2C tenant. As noted in the document, there is also a web application maintained by the B2C PG that automates this process for you: [IEF Setup App](https://aka.ms/iefsetup)
-- This is a samples repository maintained by the B2C PG with samples for many different scenarios. [Azure Active Directory B2C: Custom CIAM User Journeys](https://github.com/azure-ad-b2c/samples)
+- This is a samples repository maintained by the B2C PG with samples for many different scenarios. [Azure Active Directory B2C Custom Policy Samples](https://github.com/azure-ad-b2c/samples)
 
 ## Identity Federation
 [Identity federation](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/whatis-fed) is the concept of forming a trust with one or more identity providers to facilitate Single Sign on (SSO). Ideally, your application would trust an Azure Active Directory B2C tenant, and your B2C tenant would then trust *n* number of other identity providers, thus giving your users the ability to sign-in with pre existing accounts. B2C supports any federated identity provider that implements either the OIDC or SAML authentication protocols. 
@@ -44,6 +44,10 @@ To learn how to use Custom Policies, I'd recommend reviewing the following resou
 
 - A great sample written to explain how to use app roles in Azure AD B2C for authorization. Also explains the main differences between the other authorization options as well. [Identity Sample for Azure AD B2C - App Roles](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles)
 - In scenarios which you'd like to let a federated identity provider manage groups or roles, and you do not want to manage it in your B2C tenant, you may wish to pass through the access token received from the identity provider for use by your application. Doing this requires that the groups and roles are being returned from the identity provider, which requires configuration at the federated identity provider. [Pass an identity provider access token to your application in Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/idp-pass-through-user-flow?pivots=b2c-custom-policy)
+
+## Multitenancy 
+
+Using Azure AD B2C in a multi tenant application has many different considerations. Generally speaking, a single, shared B2C tenant is the recommended approach for most use cases. For a detailed analysis, review [Considerations for using Azure AD B2C in a multitenant architecture](https://aka.ms/multitenancy/b2c)
 
 ## Training Resources
 
